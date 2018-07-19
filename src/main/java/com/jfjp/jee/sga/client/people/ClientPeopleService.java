@@ -21,7 +21,7 @@ public class ClientPeopleService {
 
     public static void main(String[] args) {
         System.out.println("Iniciando llamada al EJB desde el cliente\n");
-        call(false);
+        call(true);
     }
 
     private static void call(boolean withIp) {

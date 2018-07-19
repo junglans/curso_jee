@@ -26,7 +26,7 @@ public class PersonBean implements Serializable {
     public PersonBean() {
     }
 
-    public PersonBean(int id, String name, String surname1, String surname2, String telephone, String email) {
+    public PersonBean(long id, String name, String surname1, String surname2, String telephone, String email) {
         this.id = id;
         this.name = name;
         this.surname1 = surname1;

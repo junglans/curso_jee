@@ -5,10 +5,14 @@
  */
 package com.jfjp.jee.sga.service.people;
 
+import com.jfjp.jee.hello.world.jpa.entities.PersonEntity;
+import com.jfjp.jee.sga.dao.PersonDAO;
 import com.jfjp.jee.sga.domain.PersonBean;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+
 
 /**
  *
@@ -17,12 +21,12 @@ import javax.ejb.Stateless;
 @Stateless
 public class PersonServiceImpl implements PersonServiceRemote, PersonService {
 
+    @EJB
+    private PersonDAO personDao;
+   
     @Override
     public List<PersonBean> listPersons() {
-        List<PersonBean> persons = new ArrayList<>();
-        persons.add(new PersonBean(1, "Juan Francisco", "Jiménez", "Pérez", "690789090","jfjp@gmail.com"));
-        persons.add(new PersonBean(2, "Manuel", "Gómez", "Pérez", "690889090","mgomez@gmail.com"));
-        return persons;
+        return map(personDao.listPersons());
     }
 
     @Override
@@ -48,6 +52,15 @@ public class PersonServiceImpl implements PersonServiceRemote, PersonService {
     @Override
     public PersonBean modifyPerson(PersonBean person) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private List<PersonBean> map(List<PersonEntity> entities) {
+         
+        List<PersonBean> result = new ArrayList<>();
+        for (PersonEntity entity : entities) {
+            result.add(new PersonBean(entity.getId(), entity.getName(), entity.getSurname1(), entity.getSurname2(),entity.getTelephone(), entity.getEmail()));
+        }
+        return result;
     }
     
 }
