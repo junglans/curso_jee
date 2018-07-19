@@ -5,7 +5,7 @@
  */
 package com.jfjp.jee.sga.service.people;
 
-import com.jfjp.jee.hello.world.jpa.entities.PersonEntity;
+import com.jfjp.jee.sga.domain.entities.PersonEntity;
 import com.jfjp.jee.sga.dao.PersonDAO;
 import com.jfjp.jee.sga.domain.PersonBean;
 import java.util.ArrayList;

@@ -5,7 +5,7 @@
  */
 package com.jfjp.jee.sga.dao;
 
-import com.jfjp.jee.hello.world.jpa.entities.PersonEntity;
+import com.jfjp.jee.sga.domain.entities.PersonEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
